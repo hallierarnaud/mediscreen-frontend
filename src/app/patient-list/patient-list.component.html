@@ -1,3 +1,24 @@
-<div *ngFor="let patient of patients">
-  <div>{{patient.lastname}}</div>
-</div>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Last name</th>
+      <th scope="col">First name</th>
+      <th scope="col">Birthdate</th>
+      <th scope="col">Sex</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patient of patients">
+      <td>{{patient.id}}</td>
+      <td>{{patient.lastname}}</td>
+      <td>{{patient.firstname}}</td>
+      <td>{{patient.birthdate | date: 'dd-MM-yyyy'}}</td>
+      <td>{{patient.sex}}</td>
+      <td>{{patient.address}}</td>
+      <td>{{patient.phone}}</td>
+    </tr>
+  </tbody>
+</table>
