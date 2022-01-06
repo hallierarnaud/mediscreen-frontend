@@ -7,6 +7,7 @@ import { PatientService } from "./services/patient.service";
 import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { HeaderComponent } from './header/header.component';
+import { FormsModule } from "@angular/forms";
 
 const appRoutes: Routes = [
   { path: 'patientList', component: PatientListComponent}
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [PatientService],

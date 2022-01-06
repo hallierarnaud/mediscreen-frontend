@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Patient} from "../data/patient";
 import {PatientService} from "../services/patient.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-patient-list',
@@ -26,6 +27,20 @@ export class PatientListComponent implements OnInit {
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
+      }
+    );
+  }
+
+  public onAddPatient(addForm: NgForm): void {
+    this.patientService.addPatient(addForm.value).subscribe(
+      (response: Patient) => {
+        console.log(response);
+        this.getPatients();
+        addForm.reset();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
       }
     );
   }
