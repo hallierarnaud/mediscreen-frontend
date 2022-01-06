@@ -6,6 +6,7 @@ import { PatientListComponent } from './patient-list/patient-list.component';
 import { PatientService } from "./services/patient.service";
 import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
+import { HeaderComponent } from './header/header.component';
 
 const appRoutes: Routes = [
   { path: 'patientList', component: PatientListComponent}
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PatientListComponent
+    PatientListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
