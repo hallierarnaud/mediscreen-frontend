@@ -8,6 +8,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from "@angular/forms";
+import { UpdatePatientModalComponent } from './update-patient-modal/update-patient-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes: Routes = [
   { path: 'patientList', component: PatientListComponent}
@@ -17,12 +19,14 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     PatientListComponent,
-    HeaderComponent
+    HeaderComponent,
+    UpdatePatientModalComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [PatientService],
