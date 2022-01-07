@@ -8,6 +8,7 @@
       <th scope="col">Sex</th>
       <th scope="col">Address</th>
       <th scope="col">Phone</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,13 @@
       <td>{{patient.sex}}</td>
       <td>{{patient.address}}</td>
       <td>{{patient.phone}}</td>
+      <td>
+        <li class="list-inline-item">
+          <button (click)="onUpdatePatient(patient)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updatePatientModal">
+            Edit patient
+          </button>
+        </li>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -28,11 +36,6 @@
   <li class="list-inline-item">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPatientModal">
       Add patient
-    </button>
-  </li>
-  <li class="list-inline-item">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updatePatientModal">
-      Edit patient
     </button>
   </li>
   <li class="list-inline-item">
@@ -73,7 +76,7 @@
 </div>
 
 <!-- edit patient Modal -->
-<div class="modal fade" id="updatePatientModal" tabindex="-1" aria-labelledby="editPatientModalLabel" aria-hidden="true">
+<!--div class="modal fade" id="updatePatientModal" tabindex="-1" aria-labelledby="editPatientModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -81,20 +84,25 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #editForm="ngForm">
           <div class="form-group">
             <label for="edit-lastname">Last name</label>
-            <input type="text" name="lastname" class="form-control" id="edit-lastname" placeholder="Last name">
+            <input type="text" ngModel="{{editPatient?.lastname}}"
+                   class="form-control"
+                   id="edit-lastname"
+                   name="lastname"
+                   placeholder="Last name">
+          </div>
+          <input type="hidden" ngModel="{{editPatient?.id}}" name="id" class="form-control" id="id" placeholder="id">
+          <div class="modal-footer">
+            <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button (click)="onUpdatePatient(editForm.value)" class="btn btn-secondary" data-bs-dismiss="modal">Save changes</button>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
   </div>
-</div>
+</div-->
 
 <!-- delete patient Modal -->
 <div class="modal fade" id="deletePatientModal" tabindex="-1" aria-labelledby="deletePatientModalLabel" aria-hidden="true">
@@ -118,3 +126,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #updatePatientModal let-modal>
+  <app-update-patient-modal [patient]="editPatient"></app-update-patient-modal>
+</ng-template>

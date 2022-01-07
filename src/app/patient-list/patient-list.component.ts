@@ -3,18 +3,22 @@ import {Patient} from "../data/patient";
 import {PatientService} from "../services/patient.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap"
+import {UpdatePatientModalComponent} from "../update-patient-modal/update-patient-modal.component";
 
 @Component({
   selector: 'app-patient-list',
   templateUrl: './patient-list.component.html',
   styleUrls: ['./patient-list.component.css']
 })
+
 export class PatientListComponent implements OnInit {
 
-  // @ts-ignore
-  public patients: Patient[];
+  public patients: Patient[] = {} as Patient[];
+  public editPatient: Patient = {} as Patient;
 
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService,
+              private modalService: NgbModal) { }
 
   ngOnInit() {
     this.getPatients()
@@ -43,6 +47,12 @@ export class PatientListComponent implements OnInit {
         addForm.reset();
       }
     );
+  }
+
+  public onUpdatePatient(patient: Patient): void {
+    this.editPatient = patient;
+    const modalRef = this.modalService.open(UpdatePatientModalComponent);
+    modalRef.componentInstance.patient = this.editPatient;
   }
 
 }
