@@ -18,7 +18,7 @@ export class PatientListComponent implements OnInit {
   public editPatient: Patient = {} as Patient;
 
   constructor(private patientService: PatientService,
-              private modalService: NgbModal) { }
+              private modalService: NgbModal) {}
 
   ngOnInit() {
     this.getPatients()
@@ -52,6 +52,8 @@ export class PatientListComponent implements OnInit {
   public onUpdatePatient(patient: Patient): void {
     this.editPatient = patient;
     const modalRef = this.modalService.open(UpdatePatientModalComponent);
+    modalRef.componentInstance.my_modal_title = 'I am your title';
+    modalRef.componentInstance.my_modal_content = 'I am your content';
     modalRef.componentInstance.patient = this.editPatient;
   }
 

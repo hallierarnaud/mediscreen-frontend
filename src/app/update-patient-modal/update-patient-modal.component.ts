@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Patient} from "../data/patient";
 
 @Component({
@@ -8,10 +9,11 @@ import {Patient} from "../data/patient";
 })
 export class UpdatePatientModalComponent implements OnInit {
 
-  @Input()
-  public patient: Patient = {} as Patient;
+  @Input() public patient: Patient = {} as Patient;
+  @Input() public my_modal_title: string | undefined;
+  @Input() public my_modal_content: string | undefined;
 
-  constructor() {}
+  constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit(): void {
   }
