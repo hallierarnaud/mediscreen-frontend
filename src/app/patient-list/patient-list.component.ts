@@ -52,9 +52,13 @@ export class PatientListComponent implements OnInit {
   public onUpdatePatient(patient: Patient): void {
     this.editPatient = patient;
     const modalRef = this.modalService.open(UpdatePatientModalComponent);
-    modalRef.componentInstance.my_modal_title = 'I am your title';
-    modalRef.componentInstance.my_modal_content = 'I am your content';
     modalRef.componentInstance.patient = this.editPatient;
+    modalRef.result.then(
+      (response) => {
+        console.log(response);
+        this.getPatients();
+      }
+    )
   }
 
 }

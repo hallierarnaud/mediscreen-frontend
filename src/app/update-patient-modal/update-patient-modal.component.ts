@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Patient} from "../data/patient";
+import {PatientService} from "../services/patient.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-update-patient-modal',
@@ -10,12 +12,22 @@ import {Patient} from "../data/patient";
 export class UpdatePatientModalComponent implements OnInit {
 
   @Input() public patient: Patient = {} as Patient;
-  @Input() public my_modal_title: string | undefined;
-  @Input() public my_modal_content: string | undefined;
 
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(public activeModal: NgbActiveModal,
+              private patientService: PatientService) {}
 
   ngOnInit(): void {
+  }
+
+  public onUpdatePatient(patient: Patient): void {
+    this.patientService.updatePatient(patient.id, patient).subscribe(
+      (response: Patient) => {
+        console.log(response);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
 }
