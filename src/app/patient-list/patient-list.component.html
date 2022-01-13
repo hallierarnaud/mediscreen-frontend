@@ -25,6 +25,9 @@
           <button (click)="onUpdatePatient(patient)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updatePatientModal">
             Edit patient
           </button>
+          <button (click)="onDeletePatient(patient.id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deletePatientModal">
+            Delete patient
+          </button>
         </li>
       </td>
     </tr>
@@ -33,16 +36,9 @@
 
 <!-- Button's trigger modal -->
 <div class="text-center list-inline py-3" id="button-container">
-  <li class="list-inline-item">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPatientModal">
-      Add patient
-    </button>
-  </li>
-  <li class="list-inline-item">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deletePatientModal">
-      Delete patient
-    </button>
-  </li>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPatientModal">
+    Add patient
+  </button>
 </div>
 
 <!-- add patient Modal -->
@@ -70,29 +66,6 @@
             <button type="submit" [disabled]="addForm.invalid" class="btn btn-primary">Save changes</button>
           </div>
         </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- delete patient Modal -->
-<div class="modal fade" id="deletePatientModal" tabindex="-1" aria-labelledby="deletePatientModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deletePatientModalLabel">Delete Patient</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete patient ?</p>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-          <button class="btn btn-danger" data-dismiss="modal">Yes</button>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

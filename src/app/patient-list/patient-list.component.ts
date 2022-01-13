@@ -5,6 +5,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap"
 import {UpdatePatientModalComponent} from "../update-patient-modal/update-patient-modal.component";
+import {DeletePatientModalComponent} from "../delete-patient-modal/delete-patient-modal.component";
 
 @Component({
   selector: 'app-patient-list',
@@ -16,6 +17,7 @@ export class PatientListComponent implements OnInit {
 
   public patients: Patient[] = {} as Patient[];
   public editPatient: Patient = {} as Patient;
+  public deletePatientId?: number;
 
   constructor(private patientService: PatientService,
               private modalService: NgbModal) {}
@@ -58,7 +60,21 @@ export class PatientListComponent implements OnInit {
         console.log(response);
         this.getPatients();
       }
-    )
+    );
+  }
+
+  public onDeletePatient(patientId: number): void {
+    this.deletePatientId = patientId;
+    const modalRef = this.modalService.open(DeletePatientModalComponent);
+    modalRef.componentInstance.patientId = this.deletePatientId;
+    modalRef.result.then(
+      (result) => {
+        if(result === 'success') {
+          console.log(result);
+          this.getPatients();
+        }
+      }
+    );
   }
 
 }

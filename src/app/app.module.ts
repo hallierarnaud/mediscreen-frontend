@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule } from "@angular/forms";
 import { UpdatePatientModalComponent } from './update-patient-modal/update-patient-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DeletePatientModalComponent } from './delete-patient-modal/delete-patient-modal.component';
 
 const appRoutes: Routes = [
   { path: 'patientList', component: PatientListComponent}
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
     AppComponent,
     PatientListComponent,
     HeaderComponent,
-    UpdatePatientModalComponent
+    UpdatePatientModalComponent,
+    DeletePatientModalComponent
   ],
   imports: [
     BrowserModule,
