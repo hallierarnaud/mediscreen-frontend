@@ -22,10 +22,10 @@
       <td>{{patient.phone}}</td>
       <td>
         <li class="list-inline-item">
-          <button (click)="onUpdatePatient(patient)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updatePatientModal">
+          <button (click)="onUpdatePatient(patient)" type="button" class="btn btn-primary me-lg-2" data-bs-toggle="modal" data-bs-target="#updatePatientModal">
             Edit patient
           </button>
-          <button (click)="onDeletePatient(patient.id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deletePatientModal">
+          <button (click)="onDeletePatient(patient.id)" type="button" class="btn btn-primary me-lg-2" data-bs-toggle="modal" data-bs-target="#deletePatientModal">
             Delete patient
           </button>
         </li>
@@ -68,5 +68,13 @@
         </form>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Notification for no patients -->
+<div *ngIf="patients?.length == 0" class="col-lg-12 col-md-12 col xl-12">
+  <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">NO PATIENTS!</h4>
+    <p>No patients were found.</p>
   </div>
 </div>
