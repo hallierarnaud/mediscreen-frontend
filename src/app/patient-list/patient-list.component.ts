@@ -77,4 +77,19 @@ export class PatientListComponent implements OnInit {
     );
   }
 
+  public searchPatients(key: string): void {
+    console.log(key);
+    const results: Patient[] = [];
+    for (const patient of this.patients) {
+      if (patient.lastname.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || patient.firstname.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(patient);
+      }
+    }
+    this.patients = results;
+    if (results.length === 0 || !key) {
+      this.getPatients();
+    }
+  }
+
 }
