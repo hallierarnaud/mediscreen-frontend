@@ -1,4 +1,19 @@
-.contact {
+.btn-primary {
+  background-color: #00849a;
+}
+
+.contact ul.nav li a, ul li{
   font-size : 14px;
   font-weight: bold;
+  color: #00849a;
+}
+
+.navigationBar {
+  background-color: #00849a;
+}
+
+ul.nav li a {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
 }
