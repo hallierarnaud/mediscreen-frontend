@@ -11,9 +11,12 @@ import { FormsModule } from "@angular/forms";
 import { UpdatePatientModalComponent } from './update-patient-modal/update-patient-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DeletePatientModalComponent } from './delete-patient-modal/delete-patient-modal.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
-  { path: 'patientList', component: PatientListComponent}
+  { path: 'patientList', component: PatientListComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full'}
 ]
 
 @NgModule({
@@ -22,7 +25,8 @@ const appRoutes: Routes = [
     PatientListComponent,
     HeaderComponent,
     UpdatePatientModalComponent,
-    DeletePatientModalComponent
+    DeletePatientModalComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
