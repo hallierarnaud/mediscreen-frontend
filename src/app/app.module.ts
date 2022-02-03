@@ -12,6 +12,7 @@ import { UpdatePatientModalComponent } from './update-patient-modal/update-patie
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DeletePatientModalComponent } from './delete-patient-modal/delete-patient-modal.component';
 import { HomeComponent } from './home/home.component';
+import { NoteListComponent } from './note-list/note-list.component';
 
 const appRoutes: Routes = [
   { path: 'patientList', component: PatientListComponent },
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     UpdatePatientModalComponent,
     DeletePatientModalComponent,
-    HomeComponent
+    HomeComponent,
+    NoteListComponent
   ],
   imports: [
     BrowserModule,
