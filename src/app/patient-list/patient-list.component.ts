@@ -6,6 +6,7 @@ import {NgForm} from "@angular/forms";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap"
 import {UpdatePatientModalComponent} from "../update-patient-modal/update-patient-modal.component";
 import {DeletePatientModalComponent} from "../delete-patient-modal/delete-patient-modal.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-patient-list',
@@ -18,9 +19,11 @@ export class PatientListComponent implements OnInit {
   public patients: Patient[] = {} as Patient[];
   public editPatient: Patient = {} as Patient;
   public deletePatientId?: number;
+  public patientId?: number;
 
   constructor(private patientService: PatientService,
-              private modalService: NgbModal) {}
+              private modalService: NgbModal,
+              private router: Router) {}
 
   ngOnInit() {
     this.getPatients()
@@ -75,6 +78,11 @@ export class PatientListComponent implements OnInit {
         }
       }
     );
+  }
+
+  public onGetPatientNotes(patientId: number): void {
+    this.patientId = patientId;
+    this.router.navigate(['noteList'], {state: {data: this.patientId}});
   }
 
   public searchPatients(key: string): void {
