@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Patient} from "../data/patient";
 import {HttpErrorResponse} from "@angular/common/http";
 import {PatientService} from "../services/patient.service";
 import {Note} from "../data/note";
@@ -29,6 +28,10 @@ export class NoteListComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+
+  public onAddNote() {
+
   }
 
 }

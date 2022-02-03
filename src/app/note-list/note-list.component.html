@@ -1,1 +1,25 @@
-<p>note-list works!</p>
+<div class="card my-5">
+  <div class="card-body">
+    <ul class="text-center list-inline py-3">
+      <li class="list-inline-item">
+        <button class="btn btn-success" (click)="onAddNote()">Add a note</button>
+      </li>
+    </ul>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Note Id</th>
+        <th scope="col">Patient Id</th>
+        <th scope="col">Note</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let note of notes">
+        <td>{{ note.id | json }}</td>
+        <td>{{ note.patientId }}</td>
+        <td>{{ note.patientNote }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
