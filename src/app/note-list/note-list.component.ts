@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Patient} from "../data/patient";
+import {HttpErrorResponse} from "@angular/common/http";
+import {PatientService} from "../services/patient.service";
+import {Note} from "../data/note";
 
 @Component({
   selector: 'app-note-list',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteListComponent implements OnInit {
 
-  constructor() { }
+  public notes: Note[] = {} as Note[];
+  patientId = window.history.state;
 
-  ngOnInit(): void {
+  constructor(private patientService: PatientService) { }
+
+  ngOnInit() {
+    this.getNotesByPatientId()
+  }
+
+  public getNotesByPatientId(): void {
+    this.patientService.getNotesByPatientId(this.patientId.data).subscribe(
+      (response: Note[]) => {
+        this.notes = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
 }
