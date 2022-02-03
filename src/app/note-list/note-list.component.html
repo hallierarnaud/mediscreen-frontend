@@ -11,13 +11,24 @@
         <th scope="col">Note Id</th>
         <th scope="col">Patient Id</th>
         <th scope="col">Note</th>
+        <th scope="col">Actions</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let note of notes">
-        <td>{{ note.id | json }}</td>
+        <td>{{ note.id }}</td>
         <td>{{ note.patientId }}</td>
         <td>{{ note.patientNote }}</td>
+        <td>
+          <li class="list-inline-item">
+            <button (click)="onUpdateNote(note)" type="button" class="btn btn-primary me-lg-2" data-bs-toggle="modal" data-bs-target="#updateNoteModal">
+              Edit note
+            </button>
+            <button (click)="onDeleteNote(note.id)" type="button" class="btn btn-primary me-lg-2" data-bs-toggle="modal" data-bs-target="#deleteNoteModal">
+              Delete note
+            </button>
+          </li>
+        </td>
       </tr>
       </tbody>
     </table>

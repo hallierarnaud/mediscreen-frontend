@@ -34,4 +34,8 @@ export class PatientService {
     return this.http.get<Note[]>(`${environment.apiNoteUrl}/notes/${patientId}`)
   }
 
+  public updateNote(id: number, note: Note): Observable<Note> {
+    return this.http.put<Note>(`${environment.apiNoteUrl}/notes/${id}`, note);
+  }
+
 }

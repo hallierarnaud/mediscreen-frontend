@@ -13,6 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DeletePatientModalComponent } from './delete-patient-modal/delete-patient-modal.component';
 import { HomeComponent } from './home/home.component';
 import { NoteListComponent } from './note-list/note-list.component';
+import { UpdateNoteModalComponent } from './update-note-modal/update-note-modal.component';
+import { DeleteNoteModalComponent } from './delete-note-modal/delete-note-modal.component';
 
 const appRoutes: Routes = [
   { path: 'noteList', component: NoteListComponent },
@@ -29,7 +31,9 @@ const appRoutes: Routes = [
     UpdatePatientModalComponent,
     DeletePatientModalComponent,
     HomeComponent,
-    NoteListComponent
+    NoteListComponent,
+    UpdateNoteModalComponent,
+    DeleteNoteModalComponent
   ],
   imports: [
     BrowserModule,
