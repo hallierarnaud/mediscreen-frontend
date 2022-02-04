@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {HttpErrorResponse} from "@angular/common/http";
 import {PatientService} from "../services/patient.service";
 import {Note} from "../data/note";
-import {Patient} from "../data/patient";
-import {UpdatePatientModalComponent} from "../update-patient-modal/update-patient-modal.component";
-import {DeletePatientModalComponent} from "../delete-patient-modal/delete-patient-modal.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {UpdateNoteModalComponent} from "../update-note-modal/update-note-modal.component";
+import {DeleteNoteModalComponent} from "../delete-note-modal/delete-note-modal.component";
 
 @Component({
   selector: 'app-note-list',
@@ -54,18 +52,18 @@ export class NoteListComponent implements OnInit {
     );
   }
 
-  public onDeleteNote(Id: number): void {
-    /*this.deletePatientId = patientId;
-    const modalRef = this.modalService.open(DeletePatientModalComponent);
-    modalRef.componentInstance.patientId = this.deletePatientId;
+  public onDeleteNote(noteId: number): void {
+    this.deleteNoteId = noteId;
+    const modalRef = this.modalService.open(DeleteNoteModalComponent);
+    modalRef.componentInstance.noteId = this.deleteNoteId;
     modalRef.result.then(
       (result) => {
         if(result === 'success') {
           console.log(result);
-          this.getPatients();
+          this.getNotesByPatientId();
         }
       }
-    );*/
+    );
   }
 
 }

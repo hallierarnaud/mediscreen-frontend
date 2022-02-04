@@ -38,4 +38,8 @@ export class PatientService {
     return this.http.put<Note>(`${environment.apiNoteUrl}/notes/${id}`, note);
   }
 
+  public deleteNote(id: number): Observable<void> {
+    return this.http.delete<void>(`${environment.apiNoteUrl}/notes/${id}`);
+  }
+
 }
