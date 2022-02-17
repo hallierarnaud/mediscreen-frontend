@@ -1,0 +1,23 @@
+<!-- add note Modal -->
+<div class="modal-header">
+  <h4 class="modal-title">Add Note</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #addNoteForm="ngForm">
+    <div class="form-group">
+      <label for="add-patientNote">Patient Note</label>
+      <input type="text" ngModel
+             class="form-control"
+             id="add-patientNote"
+             name="patientNote"
+             placeholder="Patient note">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+      <button (click)="onAddNote(notePatientId, addNoteForm.value)" class="btn btn-secondary" data-bs-dismiss="modal">Save changes</button>
+    </div>
+  </form>
+</div>

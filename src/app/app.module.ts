@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { NoteListComponent } from './note-list/note-list.component';
 import { UpdateNoteModalComponent } from './update-note-modal/update-note-modal.component';
 import { DeleteNoteModalComponent } from './delete-note-modal/delete-note-modal.component';
+import { AddNoteModalComponent } from './add-note-modal/add-note-modal.component';
 
 const appRoutes: Routes = [
   { path: 'noteList', component: NoteListComponent },
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     HomeComponent,
     NoteListComponent,
     UpdateNoteModalComponent,
-    DeleteNoteModalComponent
+    DeleteNoteModalComponent,
+    AddNoteModalComponent
   ],
   imports: [
     BrowserModule,

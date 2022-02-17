@@ -5,7 +5,7 @@ import {Note} from "../data/note";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {UpdateNoteModalComponent} from "../update-note-modal/update-note-modal.component";
 import {DeleteNoteModalComponent} from "../delete-note-modal/delete-note-modal.component";
-import {NgForm} from "@angular/forms";
+import {AddNoteModalComponent} from "../add-note-modal/add-note-modal.component";
 
 @Component({
   selector: 'app-note-list',
@@ -37,16 +37,13 @@ export class NoteListComponent implements OnInit {
     );
   }
 
-  public onAddNote(addForm: NgForm): void {
-    this.patientService.addNote(addForm.value).subscribe(
-      (response: Note) => {
+  public onAddNote(): void {
+    const modalRef = this.modalService.open(AddNoteModalComponent);
+    modalRef.componentInstance.notePatientId = this.patientId.data;
+    modalRef.result.then(
+      (response) => {
         console.log(response);
         this.getNotesByPatientId();
-        addForm.reset();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-        addForm.reset();
       }
     );
   }
