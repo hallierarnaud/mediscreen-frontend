@@ -8,14 +8,6 @@
 <div class="modal-body">
   <form #editForm="ngForm">
     <div class="form-group">
-      <label for="edit-patientId">Patient Id</label>
-      <input type="text" ngModel="{{note?.patientId}}"
-             class="form-control"
-             id="edit-patientId"
-             name="patientId"
-             placeholder="Patient Id">
-    </div>
-    <div class="form-group">
       <label for="edit-patientNote">Note</label>
       <input type="text" ngModel="{{note?.patientNote}}"
              class="form-control"
@@ -23,7 +15,8 @@
              name="patientNote"
              placeholder="Note">
     </div>
-    <input type="hidden" ngModel="{{note?.id}}" name="id" class="form-control" id="id" placeholder="id">
+    <input type="hidden" ngModel="{{note?.id}}" name="id" class="form-control" id="id">
+    <input type="hidden" ngModel="{{note?.patientId}}" name="patientId" class="form-control" id="patientId">
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
       <button (click)="onUpdateNote(editForm.value)" class="btn btn-secondary" data-bs-dismiss="modal">Save changes</button>
