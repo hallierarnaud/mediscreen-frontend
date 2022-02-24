@@ -16,6 +16,7 @@ import { NoteListComponent } from './note-list/note-list.component';
 import { UpdateNoteModalComponent } from './update-note-modal/update-note-modal.component';
 import { DeleteNoteModalComponent } from './delete-note-modal/delete-note-modal.component';
 import { AddNoteModalComponent } from './add-note-modal/add-note-modal.component';
+import { GetRiskModalComponent } from './get-risk-modal/get-risk-modal.component';
 
 const appRoutes: Routes = [
   { path: 'noteList', component: NoteListComponent },
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     NoteListComponent,
     UpdateNoteModalComponent,
     DeleteNoteModalComponent,
-    AddNoteModalComponent
+    AddNoteModalComponent,
+    GetRiskModalComponent
   ],
   imports: [
     BrowserModule,

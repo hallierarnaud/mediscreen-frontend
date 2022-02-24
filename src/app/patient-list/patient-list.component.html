@@ -33,7 +33,12 @@
           <button (click)="onDeletePatient(patient.id)" type="button" class="btn btn-primary me-lg-2" data-bs-toggle="modal" data-bs-target="#deletePatientModal">
             Delete patient
           </button>
-          <button (click)="onGetPatientNotes(patient.id)" type="button" class="btn btn-primary me-lg-2">Get Notes</button>
+          <button (click)="onGetPatientNotes(patient.id)" type="button" class="btn btn-primary me-lg-2">
+            Get Notes
+          </button>
+          <button (click)="onGetRisk(patient.id)" type="button" class="btn btn-primary me-lg-2">
+            Get Risk
+          </button>
         </li>
       </td>
     </tr>

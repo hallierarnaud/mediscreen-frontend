@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {Patient} from "../data/patient";
 import {environment} from "../../environments/environment";
 import {Note} from "../data/note";
+import {Risk} from "../data/risk";
 
 @Injectable()
 export class PatientService {
@@ -44,6 +45,10 @@ export class PatientService {
 
   public deleteNote(id: number): Observable<void> {
     return this.http.delete<void>(`${environment.apiNoteUrl}/notes/${id}`);
+  }
+
+  public getRisk(patientId: number): Observable<Risk> {
+    return this.http.get<Risk>(`${environment.apiRiskUrl}/risks/${patientId}`)
   }
 
 }

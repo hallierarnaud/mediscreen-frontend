@@ -7,6 +7,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap"
 import {UpdatePatientModalComponent} from "../update-patient-modal/update-patient-modal.component";
 import {DeletePatientModalComponent} from "../delete-patient-modal/delete-patient-modal.component";
 import {Router} from "@angular/router";
+import {GetRiskModalComponent} from "../get-risk-modal/get-risk-modal.component";
 
 @Component({
   selector: 'app-patient-list',
@@ -83,6 +84,18 @@ export class PatientListComponent implements OnInit {
   public onGetPatientNotes(patientId: number): void {
     this.patientId = patientId;
     this.router.navigate(['noteList'], {state: {data: this.patientId}});
+  }
+
+  public onGetRisk(patientId: number): void {
+    this.patientId = patientId;
+    const modalRef = this.modalService.open(GetRiskModalComponent);
+    modalRef.componentInstance.patientId = this.patientId;
+    modalRef.result.then(
+      (result) => {
+        console.log(result);
+        this.getPatients();
+      }
+    );
   }
 
   public searchPatients(key: string): void {
