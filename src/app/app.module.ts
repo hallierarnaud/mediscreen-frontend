@@ -17,10 +17,21 @@ import { UpdateNoteModalComponent } from './update-note-modal/update-note-modal.
 import { DeleteNoteModalComponent } from './delete-note-modal/delete-note-modal.component';
 import { AddNoteModalComponent } from './add-note-modal/add-note-modal.component';
 import { GetRiskModalComponent } from './get-risk-modal/get-risk-modal.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 const appRoutes: Routes = [
   { path: 'noteList', component: NoteListComponent },
   { path: 'patientList', component: PatientListComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'user', component: BoardUserComponent },
+  { path: 'admin', component: BoardAdminComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'}
 ]
@@ -37,7 +48,12 @@ const appRoutes: Routes = [
     UpdateNoteModalComponent,
     DeleteNoteModalComponent,
     AddNoteModalComponent,
-    GetRiskModalComponent
+    GetRiskModalComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    BoardUserComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +62,7 @@ const appRoutes: Routes = [
     NgbModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [PatientService],
+  providers: [PatientService, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
